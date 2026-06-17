@@ -8,6 +8,8 @@ namespace chat_sdk {
      // Initialize the model with the given configuration
     bool DeepseekProvider::initModel(const std::map<std::string, std::string>& modelConfig) {
         // Initialize the model with the given configuration
+
+        // get api key
         auto it = modelConfig.find("api_key");
         if (it == modelConfig.end()) {
             // Handle the case where the API key is not found
@@ -15,6 +17,8 @@ namespace chat_sdk {
             return false; 
         }
         _apiKey = it->second;
+
+        // get endpoint
         it = modelConfig.find("endpoint");
         if (it == modelConfig.end()) {
             // Handle the case where the endpoint is not found
@@ -22,6 +26,26 @@ namespace chat_sdk {
             return false; 
         }
         _endpoint = it->second;
+
+        // get max tokens
+        it = modelConfig.find("max_tokens");
+        if (it == modelConfig.end()) {
+            // Handle the case where the max tokens is not found
+            ERR("Max tokens not found in model configuration");
+            return false; 
+        }
+        _maxTokens = std::stoi(it->second);
+
+        // get temperature
+        it = modelConfig.find("temperature");
+        if (it == modelConfig.end()) {
+            // Handle the case where the temperature is not found
+            ERR("Temperature not found in model configuration");
+            return false; 
+        }
+        _temperature = std::stod(it->second);
+
+        
         _isAvailable = true; // Set the provider as available after successful initialization
         _providerName = "Deepseek";
         INF("Model initialized successfully, Provider: {}, API Key: {}, Endpoint: {}", _providerName, _apiKey, _endpoint);
@@ -73,8 +97,8 @@ namespace chat_sdk {
 
  
         //3.get request parameters
-        double temperature = 0.7; // default temperature
-        int maxTokens = 100000; // default max tokens
+        double temperature = _temperature; // default temperature
+        int maxTokens = _maxTokens; // default max tokens
         if(requestParams.find("temperature") != requestParams.end())
         {
             try {

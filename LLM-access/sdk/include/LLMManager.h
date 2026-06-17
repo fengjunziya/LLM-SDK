@@ -11,7 +11,7 @@ namespace chat_sdk{
             // Register a new LLM provider
             bool providerRegister(const std::string& modelName, std::unique_ptr<LLMProvider> provider);
             // Initialize models with configuration
-            bool initModels(const std::string& modelName, const std::map<std::string, std::string>& modelConfig);
+            bool initModel(const std::string& modelName, const std::map<std::string, std::string>& modelConfig);
             // Get all available models
             std::vector<ModelConfig> getAvailableModels() const;
             // Check model availability

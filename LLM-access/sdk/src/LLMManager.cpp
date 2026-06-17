@@ -16,7 +16,7 @@ namespace chat_sdk{
         return true;
     }
     // Initialize models with configuration
-    bool LLMManager::initModels(const std::string& modelName, const std::map<std::string, std::string>& modelConfig){
+    bool LLMManager::initModel(const std::string& modelName, const std::map<std::string, std::string>& modelConfig){
         //check model exist
         if(_providers.find(modelName) == _providers.end()){
             ERR("model not exist");

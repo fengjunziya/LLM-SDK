@@ -23,13 +23,13 @@ namespace chat_sdk {
         std::string _model_name; // model name
         std::string _model_description; // model description
         std::string _model_provider; // model provider
-        //std::string _endpoint; // model endpoint base URL
+        std::string _endpoint; // model endpoint base URL
         int _max_tokens; // max tokens for response
-        float _temperature; // temperature for response generation
+        double _temperature; // temperature for response generation
         bool _isAvailable = false; // whether the model is available for use
 
         ModelConfig(std::string model_name = "", std::string model_description = "", std::string model_provider = "", 
-            int max_tokens = 2048, float temperature = 0.7)
+            int max_tokens = 2048, double temperature = 0.7)
             : _model_name(model_name), _model_description(model_description), _model_provider(model_provider),
               _max_tokens(max_tokens), _temperature(temperature) {}
     };

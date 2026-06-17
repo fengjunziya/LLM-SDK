@@ -22,6 +22,8 @@ namespace chat_sdk{
             bool _isAvailable = false; // Whether the provider is available
             std::string _apiKey; // API key for authentication
             std::string _endpoint; // Endpoint for API requests
+            int _maxTokens = 2048; // Max tokens for response
+            double _temperature = 0.7; // Temperature for response generation
             std::string _providerName; // Provider name
             //std::vector<ModelConfig> _modelConfigs;
     };
