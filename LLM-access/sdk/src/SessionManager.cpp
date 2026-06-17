@@ -103,7 +103,7 @@ namespace chat_sdk {
         it->second->_messages.push_back(t_mes);
         // update timestamp
         it->second->_updated_at = t_mes._timestamp;
-        INF("add message to session id :{}, message is {}", sessionId, t_mes._content);
+        INF("add message to session id :{}", sessionId);
         _mutex.unlock();
         // update database
         _dataManager.insertMessage(sessionId, t_mes);

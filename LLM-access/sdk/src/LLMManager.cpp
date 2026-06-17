@@ -9,9 +9,8 @@ namespace chat_sdk{
             ERR("provider is nullptr");
             return false;
         }
-        _providers[modelName] = std::move(provider);
         _modelConfig[modelName] = ModelConfig{modelName, provider->getModelDescription(), provider->getProviderName()};
-
+        _providers[modelName] = std::move(provider);
         INF("provider Register success ,modelName: {}", modelName);
         return true;
     }
@@ -28,7 +27,6 @@ namespace chat_sdk{
             ERR("init model failed");
             return false;
         }
-
         _modelConfig[modelName]._isAvailable = true;
         INF("init model success ,modelName: {}", modelName);
         return true;

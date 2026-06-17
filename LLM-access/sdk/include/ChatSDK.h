@@ -35,6 +35,11 @@ namespace chat_sdk {
         std::string sendMessageWithStream(const std::string& sessionId, const std::string& message, 
                                    std::function<void(const std::string&,bool)> callback);
 
+        // get history messages
+        std::vector<Message> getHistoryMessages(const std::string& sessionId);
+
+
+
 private:
         // register providers
         void registerProviders();

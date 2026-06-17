@@ -390,7 +390,8 @@ namespace chat_sdk {
         std::lock_guard<std::mutex> lock(_mutex);
         std::string insert_sql = R"(
             INSERT INTO messages (message_id, session_id, role, content, timestamp)
-            VALUES (?, ?, ?, ?, ?)";    
+            VALUES (?, ?, ?, ?, ?)
+            )";    
         // prepare statement
         sqlite3_stmt* stmt = nullptr;
         int ret = sqlite3_prepare_v2(_db, insert_sql.c_str(), -1, &stmt, nullptr);
@@ -426,7 +427,7 @@ namespace chat_sdk {
             SELECT message_id, role, content, timestamp
             FROM messages
             WHERE session_id = ?
-            ORDER BY timestamp DESC
+            ORDER BY timestamp ASC
         )";
         
         // prepare statement

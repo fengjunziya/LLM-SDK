@@ -190,7 +190,7 @@ namespace chat_sdk {
         // update session timestamp
         _sessionManager.updateTimestamp(sessionId);
 
-        INF("sendMessage: %s", response.c_str());
+        INF("Response: {}", response);
         return response;
     }
 
@@ -235,5 +235,18 @@ namespace chat_sdk {
 
         INF("sendMessageWithStream: %s", response.c_str());
         return response;
+    }
+
+    // get history messages
+    std::vector<Message> ChatSDK::getHistoryMessages(const std::string& sessionId)
+    {
+        // check sdk initialized
+        if(!_isInitialized)
+        {
+            ERR("sdk not initialized");
+            return {};
+        }
+        // get history messages
+        return _sessionManager.getHistoryMessages(sessionId);
     }
 }

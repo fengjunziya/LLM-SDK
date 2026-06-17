@@ -45,7 +45,7 @@ namespace chat_sdk {
         }
         _temperature = std::stod(it->second);
 
-        
+
         _isAvailable = true; // Set the provider as available after successful initialization
         _providerName = "Deepseek";
         INF("Model initialized successfully, Provider: {}, API Key: {}, Endpoint: {}", _providerName, _apiKey, _endpoint);
@@ -67,7 +67,7 @@ namespace chat_sdk {
     // Get the provider name
     std::string DeepseekProvider::getProviderName()// Get the provider name
     {
-        return _providerName;
+        return "Deepseek";
     }
 
     // Get the model description
@@ -175,7 +175,7 @@ namespace chat_sdk {
             return "";
         }
         std::string replyContent = responseBody["choices"][0]["message"]["content"].asString();
-        INF("Reply content: {}\n", replyContent);
+        //INF("Reply content: {}\n", replyContent);
         return replyContent;
 
     }

@@ -28,9 +28,9 @@ namespace chat_sdk {
         double _temperature; // temperature for response generation
         bool _isAvailable = false; // whether the model is available for use
 
-        ModelConfig(std::string model_name = "", std::string model_description = "", std::string model_provider = "", 
+        ModelConfig(std::string model_name = "", std::string model_description = "", std::string model_provider = "", std::string endpoint = "", 
             int max_tokens = 2048, double temperature = 0.7)
-            : _model_name(model_name), _model_description(model_description), _model_provider(model_provider),
+            : _model_name(model_name), _model_description(model_description), _model_provider(model_provider), _endpoint(endpoint),
               _max_tokens(max_tokens), _temperature(temperature) {}
     };
 
