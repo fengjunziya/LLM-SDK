@@ -6,39 +6,52 @@
 
 namespace chat_sdk {
      // Initialize the model with the given configuration
-    void DeepseekProvider::initModel(const std::map<std::string, std::string>& modelConfig) {
+    bool DeepseekProvider::initModel(const std::map<std::string, std::string>& modelConfig) {
         // Initialize the model with the given configuration
         auto it = modelConfig.find("api_key");
         if (it == modelConfig.end()) {
             // Handle the case where the API key is not found
             ERR("API key not found in model configuration");
-            return; 
+            return false; 
         }
         _apiKey = it->second;
         it = modelConfig.find("endpoint");
         if (it == modelConfig.end()) {
             // Handle the case where the endpoint is not found
             ERR("Endpoint not found in model configuration");
-            return;
+            return false; 
         }
         _endpoint = it->second;
         _isAvailable = true; // Set the provider as available after successful initialization
-        INF("Model initialized successfully, API Key: {}, Endpoint: {}", _apiKey, _endpoint);
+        _providerName = "Deepseek";
+        INF("Model initialized successfully, Provider: {}, API Key: {}, Endpoint: {}", _providerName, _apiKey, _endpoint);
+        return true;
     }
 
+    // Check if the provider is available
     bool DeepseekProvider::isAvailable()// Check if the provider is available
     {
         return _isAvailable;
     }
 
+    // Get the model name
     std::string DeepseekProvider::getModelName()// Get the model name
     {
         return "deepseek-v4-flash";
     }
+
+    // Get the provider name
+    std::string DeepseekProvider::getProviderName()// Get the provider name
+    {
+        return _providerName;
+    }
+
+    // Get the model description
     std::string DeepseekProvider::getModelDescription()// Get the model description
     {
         return "A powerful language model for various NLP tasks.";
     }
+
     // Send message - All content return
     std::string DeepseekProvider::sendMessage(const std::vector<Message>& messages, const std::map<std::string, std::string>& requestParams)
     {
