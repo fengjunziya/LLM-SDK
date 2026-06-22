@@ -1,0 +1,9 @@
+/usr/local/lib/libLLM-access.a
+/usr/local/include/ai_chat_sdk/SessionManager.h
+/usr/local/include/ai_chat_sdk/util/Log.h
+/usr/local/include/ai_chat_sdk/DataManager.h
+/usr/local/include/ai_chat_sdk/common.h
+/usr/local/include/ai_chat_sdk/DeepseekProvider.h
+/usr/local/include/ai_chat_sdk/LLMProvider.h
+/usr/local/include/ai_chat_sdk/ChatSDK.h
+/usr/local/include/ai_chat_sdk/LLMManager.h

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libLLM-access.a CMakeFiles/LLM-access.dir/src/ChatSDK.cpp.o CMakeFiles/LLM-access.dir/src/DataManager.cpp.o CMakeFiles/LLM-access.dir/src/DeepSeekProvider.cpp.o CMakeFiles/LLM-access.dir/src/LLMManager.cpp.o CMakeFiles/LLM-access.dir/src/SessionManager.cpp.o CMakeFiles/LLM-access.dir/src/util/Log.cpp.o
+/usr/bin/ranlib libLLM-access.a
