@@ -47,5 +47,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/LLM-access.dir/DependInfo.cmake"
+  "CMakeFiles/ai_chat_sdk.dir/DependInfo.cmake"
   )

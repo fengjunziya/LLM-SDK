@@ -242,6 +242,9 @@ ai_chat_sdk_BINARY_DIR:STATIC=/home/fengjunziya/ChatSDK/LLM-access/sdk/build
 //Value Computed by CMake
 ai_chat_sdk_IS_TOP_LEVEL:STATIC=ON
 
+//Dependencies for the target
+ai_chat_sdk_LIB_DEPENDS:STATIC=general;spdlog;general;jsoncpp;general;gtest;general;fmt;general;OpenSSL::SSL;general;OpenSSL::Crypto;general;sqlite3;
+
 //Value Computed by CMake
 ai_chat_sdk_SOURCE_DIR:STATIC=/home/fengjunziya/ChatSDK/LLM-access/sdk
 

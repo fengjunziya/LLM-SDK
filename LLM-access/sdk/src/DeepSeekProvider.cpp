@@ -189,6 +189,7 @@ namespace chat_sdk {
             ERR("Model is not available. Please initialize the model first.\n");
             return "";
         }
+        
         // 2.bulid history messages
         Json::Value messagesArr = Json::Value(Json::arrayValue);
         for (const auto& message : messages) { 
@@ -285,12 +286,12 @@ namespace chat_sdk {
             size_t pos = 0;
 
             // get data
-            while((pos = buffer.find("\n\n", pos)) != std::string::npos)
+            while((pos = buffer.find("\n\n")) != std::string::npos)
             {
                 std::string line = buffer.substr(0, pos);
                 buffer.erase(0, pos + 2);
 
-                if(line.empty() || line == ":")
+                if(line.empty() || line[0] == ':')
                 {
                     continue;
                 }
@@ -300,6 +301,7 @@ namespace chat_sdk {
 
                     if(data == "[DONE]")
                     {
+                        callback("", true);
                         isStreamEnd = true;
                         return true;
                     }
@@ -309,25 +311,23 @@ namespace chat_sdk {
                     Json::CharReaderBuilder readerbuilder;
                     std::string errorms;
                     std::istringstream resStream(data);
-                    if(!Json::parseFromStream(readerbuilder, resStream, &datajson, &errorms))
-                    {
-                        ERR("Failed to parse JSON data: {}\n", data);
-                        return false;
+                     if(Json::parseFromStream(readerbuilder, resStream, &datajson, &errorms)){
+                        // 模型返回的json格式的数据现在就保存在modelDataJson
+                        if(datajson.isMember("choices") &&
+                          datajson["choices"].isArray() && 
+                          !datajson["choices"].empty() &&
+                          datajson["choices"][0].isMember("delta") &&
+                          datajson["choices"][0]["delta"].isMember("content")){
+                            std::string content = datajson["choices"][0]["delta"]["content"].asString();
+                            // 处理deltaContent，例如追加到fullResponse
+                            replyContent += content;
+
+                            // 将本次解析出的模型返回的有效数据转给调用sendMessageStraem函数的用户使用---callback
+                            callback(content, false);
+                        }
+                    }else{
+                        WRN("DeepSeekProvider sendMessageStream parse modelDataJson error: {}", errorms);
                     }
-                    if(!datajson.isMember("choices") || !datajson["choices"].isArray() || datajson["choices"].empty())
-                    {
-                        ERR("Invalid response format: 'choices' field is missing or not an array.\n");
-                        return false;
-                    }
-                    if(!datajson["choices"][0].isMember("delta") || !datajson["choices"][0]["delta"].isObject() || 
-                    !datajson["choices"][0]["delta"].isMember("content"))
-                    {
-                        ERR("Invalid response format: 'delta' field is missing or does not contain 'content'.\n");
-                        return false;
-                    }
-                    std::string deltaContent = datajson["choices"][0]["delta"]["content"].asString();
-                    replyContent += deltaContent;
-                    callback(deltaContent, false);
                 }
             }
             return true;

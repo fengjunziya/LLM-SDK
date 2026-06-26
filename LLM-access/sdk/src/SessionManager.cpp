@@ -62,23 +62,20 @@ namespace chat_sdk {
 
     // get session
     std::shared_ptr<Session> SessionManager::getSession(const std::string& sessionId){
-        _mutex.lock();
         // find in memory
+        std::lock_guard<std::mutex> lock(_mutex);
+
         auto it = _sessions.find(sessionId);
         if (it != _sessions.end()) {
-            _mutex.unlock();
             it->second->_messages = _dataManager.getSessionMessages(sessionId);
             INF("get session id :{}", sessionId);
             return it->second;
         }
-        _mutex.unlock();
-
+        
         // not find in memory, find in database
         auto session = _dataManager.getSession(sessionId);
         if (session != nullptr) {
-            _mutex.lock();
             _sessions[sessionId] = session;
-            _mutex.unlock();
             INF("get session id :{}", sessionId);
             return session;
         }

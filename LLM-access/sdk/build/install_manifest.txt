@@ -1,4 +1,4 @@
-/usr/local/lib/libLLM-access.a
+/usr/local/lib/libai_chat_sdk.a
 /usr/local/include/ai_chat_sdk/SessionManager.h
 /usr/local/include/ai_chat_sdk/util/Log.h
 /usr/local/include/ai_chat_sdk/DataManager.h

@@ -162,24 +162,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named LLM-access
+# Target rules for targets named ai_chat_sdk
 
 # Build rule for target.
-LLM-access: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 LLM-access
-.PHONY : LLM-access
+ai_chat_sdk: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ai_chat_sdk
+.PHONY : ai_chat_sdk
 
 # fast build rule for target.
-LLM-access/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LLM-access.dir/build.make CMakeFiles/LLM-access.dir/build
-.PHONY : LLM-access/fast
+ai_chat_sdk/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_chat_sdk.dir/build.make CMakeFiles/ai_chat_sdk.dir/build
+.PHONY : ai_chat_sdk/fast
 
 src/ChatSDK.o: src/ChatSDK.cpp.o
 .PHONY : src/ChatSDK.o
 
 # target to build an object file
 src/ChatSDK.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LLM-access.dir/build.make CMakeFiles/LLM-access.dir/src/ChatSDK.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_chat_sdk.dir/build.make CMakeFiles/ai_chat_sdk.dir/src/ChatSDK.cpp.o
 .PHONY : src/ChatSDK.cpp.o
 
 src/ChatSDK.i: src/ChatSDK.cpp.i
@@ -187,7 +187,7 @@ src/ChatSDK.i: src/ChatSDK.cpp.i
 
 # target to preprocess a source file
 src/ChatSDK.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LLM-access.dir/build.make CMakeFiles/LLM-access.dir/src/ChatSDK.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_chat_sdk.dir/build.make CMakeFiles/ai_chat_sdk.dir/src/ChatSDK.cpp.i
 .PHONY : src/ChatSDK.cpp.i
 
 src/ChatSDK.s: src/ChatSDK.cpp.s
@@ -195,7 +195,7 @@ src/ChatSDK.s: src/ChatSDK.cpp.s
 
 # target to generate assembly for a file
 src/ChatSDK.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LLM-access.dir/build.make CMakeFiles/LLM-access.dir/src/ChatSDK.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_chat_sdk.dir/build.make CMakeFiles/ai_chat_sdk.dir/src/ChatSDK.cpp.s
 .PHONY : src/ChatSDK.cpp.s
 
 src/DataManager.o: src/DataManager.cpp.o
@@ -203,7 +203,7 @@ src/DataManager.o: src/DataManager.cpp.o
 
 # target to build an object file
 src/DataManager.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LLM-access.dir/build.make CMakeFiles/LLM-access.dir/src/DataManager.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_chat_sdk.dir/build.make CMakeFiles/ai_chat_sdk.dir/src/DataManager.cpp.o
 .PHONY : src/DataManager.cpp.o
 
 src/DataManager.i: src/DataManager.cpp.i
@@ -211,7 +211,7 @@ src/DataManager.i: src/DataManager.cpp.i
 
 # target to preprocess a source file
 src/DataManager.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LLM-access.dir/build.make CMakeFiles/LLM-access.dir/src/DataManager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_chat_sdk.dir/build.make CMakeFiles/ai_chat_sdk.dir/src/DataManager.cpp.i
 .PHONY : src/DataManager.cpp.i
 
 src/DataManager.s: src/DataManager.cpp.s
@@ -219,7 +219,7 @@ src/DataManager.s: src/DataManager.cpp.s
 
 # target to generate assembly for a file
 src/DataManager.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LLM-access.dir/build.make CMakeFiles/LLM-access.dir/src/DataManager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_chat_sdk.dir/build.make CMakeFiles/ai_chat_sdk.dir/src/DataManager.cpp.s
 .PHONY : src/DataManager.cpp.s
 
 src/DeepSeekProvider.o: src/DeepSeekProvider.cpp.o
@@ -227,7 +227,7 @@ src/DeepSeekProvider.o: src/DeepSeekProvider.cpp.o
 
 # target to build an object file
 src/DeepSeekProvider.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LLM-access.dir/build.make CMakeFiles/LLM-access.dir/src/DeepSeekProvider.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_chat_sdk.dir/build.make CMakeFiles/ai_chat_sdk.dir/src/DeepSeekProvider.cpp.o
 .PHONY : src/DeepSeekProvider.cpp.o
 
 src/DeepSeekProvider.i: src/DeepSeekProvider.cpp.i
@@ -235,7 +235,7 @@ src/DeepSeekProvider.i: src/DeepSeekProvider.cpp.i
 
 # target to preprocess a source file
 src/DeepSeekProvider.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LLM-access.dir/build.make CMakeFiles/LLM-access.dir/src/DeepSeekProvider.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_chat_sdk.dir/build.make CMakeFiles/ai_chat_sdk.dir/src/DeepSeekProvider.cpp.i
 .PHONY : src/DeepSeekProvider.cpp.i
 
 src/DeepSeekProvider.s: src/DeepSeekProvider.cpp.s
@@ -243,7 +243,7 @@ src/DeepSeekProvider.s: src/DeepSeekProvider.cpp.s
 
 # target to generate assembly for a file
 src/DeepSeekProvider.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LLM-access.dir/build.make CMakeFiles/LLM-access.dir/src/DeepSeekProvider.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_chat_sdk.dir/build.make CMakeFiles/ai_chat_sdk.dir/src/DeepSeekProvider.cpp.s
 .PHONY : src/DeepSeekProvider.cpp.s
 
 src/LLMManager.o: src/LLMManager.cpp.o
@@ -251,7 +251,7 @@ src/LLMManager.o: src/LLMManager.cpp.o
 
 # target to build an object file
 src/LLMManager.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LLM-access.dir/build.make CMakeFiles/LLM-access.dir/src/LLMManager.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_chat_sdk.dir/build.make CMakeFiles/ai_chat_sdk.dir/src/LLMManager.cpp.o
 .PHONY : src/LLMManager.cpp.o
 
 src/LLMManager.i: src/LLMManager.cpp.i
@@ -259,7 +259,7 @@ src/LLMManager.i: src/LLMManager.cpp.i
 
 # target to preprocess a source file
 src/LLMManager.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LLM-access.dir/build.make CMakeFiles/LLM-access.dir/src/LLMManager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_chat_sdk.dir/build.make CMakeFiles/ai_chat_sdk.dir/src/LLMManager.cpp.i
 .PHONY : src/LLMManager.cpp.i
 
 src/LLMManager.s: src/LLMManager.cpp.s
@@ -267,7 +267,7 @@ src/LLMManager.s: src/LLMManager.cpp.s
 
 # target to generate assembly for a file
 src/LLMManager.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LLM-access.dir/build.make CMakeFiles/LLM-access.dir/src/LLMManager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_chat_sdk.dir/build.make CMakeFiles/ai_chat_sdk.dir/src/LLMManager.cpp.s
 .PHONY : src/LLMManager.cpp.s
 
 src/SessionManager.o: src/SessionManager.cpp.o
@@ -275,7 +275,7 @@ src/SessionManager.o: src/SessionManager.cpp.o
 
 # target to build an object file
 src/SessionManager.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LLM-access.dir/build.make CMakeFiles/LLM-access.dir/src/SessionManager.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_chat_sdk.dir/build.make CMakeFiles/ai_chat_sdk.dir/src/SessionManager.cpp.o
 .PHONY : src/SessionManager.cpp.o
 
 src/SessionManager.i: src/SessionManager.cpp.i
@@ -283,7 +283,7 @@ src/SessionManager.i: src/SessionManager.cpp.i
 
 # target to preprocess a source file
 src/SessionManager.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LLM-access.dir/build.make CMakeFiles/LLM-access.dir/src/SessionManager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_chat_sdk.dir/build.make CMakeFiles/ai_chat_sdk.dir/src/SessionManager.cpp.i
 .PHONY : src/SessionManager.cpp.i
 
 src/SessionManager.s: src/SessionManager.cpp.s
@@ -291,7 +291,7 @@ src/SessionManager.s: src/SessionManager.cpp.s
 
 # target to generate assembly for a file
 src/SessionManager.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LLM-access.dir/build.make CMakeFiles/LLM-access.dir/src/SessionManager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_chat_sdk.dir/build.make CMakeFiles/ai_chat_sdk.dir/src/SessionManager.cpp.s
 .PHONY : src/SessionManager.cpp.s
 
 src/util/Log.o: src/util/Log.cpp.o
@@ -299,7 +299,7 @@ src/util/Log.o: src/util/Log.cpp.o
 
 # target to build an object file
 src/util/Log.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LLM-access.dir/build.make CMakeFiles/LLM-access.dir/src/util/Log.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_chat_sdk.dir/build.make CMakeFiles/ai_chat_sdk.dir/src/util/Log.cpp.o
 .PHONY : src/util/Log.cpp.o
 
 src/util/Log.i: src/util/Log.cpp.i
@@ -307,7 +307,7 @@ src/util/Log.i: src/util/Log.cpp.i
 
 # target to preprocess a source file
 src/util/Log.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LLM-access.dir/build.make CMakeFiles/LLM-access.dir/src/util/Log.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_chat_sdk.dir/build.make CMakeFiles/ai_chat_sdk.dir/src/util/Log.cpp.i
 .PHONY : src/util/Log.cpp.i
 
 src/util/Log.s: src/util/Log.cpp.s
@@ -315,7 +315,7 @@ src/util/Log.s: src/util/Log.cpp.s
 
 # target to generate assembly for a file
 src/util/Log.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LLM-access.dir/build.make CMakeFiles/LLM-access.dir/src/util/Log.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ai_chat_sdk.dir/build.make CMakeFiles/ai_chat_sdk.dir/src/util/Log.cpp.s
 .PHONY : src/util/Log.cpp.s
 
 # Help Target
@@ -330,7 +330,7 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... LLM-access"
+	@echo "... ai_chat_sdk"
 	@echo "... src/ChatSDK.o"
 	@echo "... src/ChatSDK.i"
 	@echo "... src/ChatSDK.s"

@@ -47,7 +47,7 @@ namespace chat_sdk{
     {
         auto it = _modelConfig.find(modelName);
         if(it == _modelConfig.end()){
-            ERR("model not exist");
+            WRN("model not exist");
             return false;
         }
         return it->second._isAvailable;
