@@ -35,9 +35,7 @@ flowchart TD
     DS --> API["外部 LLM API · HTTPS"]
 ```
 
-**需要拖拽编辑？** [在 draw.io 中打开架构图（可移动节点、连线、重新排版）](https://app.diagrams.net/#Uhttps%3A%2F%2Fraw.githubusercontent.com%2Ffengjunziya%2FLLM-SDK%2Fmain%2Fdocs%2Farchitecture.drawio) · [查看 .drawio 源文件](docs/architecture.drawio)
 
-GitHub 的 README 会将 Mermaid 渲染为可阅读的架构图；要**拖动各个节点并编辑布局**，请点上面的 draw.io 链接，在编辑器中操作后保存修改。
 
 ## 📁 项目结构
 
