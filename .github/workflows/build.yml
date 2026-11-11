@@ -1,0 +1,26 @@
+name: CMake build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install SDK dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            build-essential cmake pkg-config libssl-dev libsqlite3-dev \
+            libspdlog-dev libjsoncpp-dev libcpp-httplib-dev
+
+      - name: Configure
+        run: cmake -S LLM-access/sdk -B build -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build
+        run: cmake --build build --parallel 2

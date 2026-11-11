@@ -8,6 +8,7 @@
 namespace chat_sdk{
     struct LLMProvider {
         public:
+            virtual ~LLMProvider() = default;
             virtual bool initModel(const std::map<std::string, std::string>& modelConfig) = 0; // Initialize the model with the given configuration
             virtual bool isAvailable() = 0; // Check if the provider is available
             virtual std::string getModelName() = 0; // Get the model name

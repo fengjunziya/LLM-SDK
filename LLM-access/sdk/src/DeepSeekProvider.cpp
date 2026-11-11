@@ -2,6 +2,7 @@
 #include "../include/util/Log.h"
 #include <jsoncpp/json/json.h>
 #include <httplib.h>
+#include <sstream>
 
 
 namespace chat_sdk {
@@ -48,7 +49,7 @@ namespace chat_sdk {
 
         _isAvailable = true; // Set the provider as available after successful initialization
         _providerName = "Deepseek";
-        INF("Model initialized successfully, Provider: {}, API Key: {}, Endpoint: {}", _providerName, _apiKey, _endpoint);
+        INF("Model initialized successfully, Provider: {}, Endpoint: {}", _providerName, _endpoint);
         return true;
     }
 
