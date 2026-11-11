@@ -1,0 +1,39 @@
+# Build output (including all nested CMake directories)
+build/
+**/build/
+cmake-build-*/
+**/cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+Makefile
+*.o
+*.obj
+*.a
+*.so
+*.so.*
+*.dll
+*.dylib
+*.exe
+
+# Runtime data and logs
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+*.log
+logs/
+
+# Secrets and machine-specific settings
+.env
+.env.*
+!.env.example
+*Config.cfg
+*.local
+
+# IDE / operating system
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

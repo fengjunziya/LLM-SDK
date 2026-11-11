@@ -3,6 +3,7 @@
 #include <memory>
 #include <functional>
 #include <vector>
+#include <unordered_map>
 #include "SessionManager.h"
 #include "LLMManager.h"
 

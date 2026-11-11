@@ -1,7 +1,0 @@
-/home/fengjunziya/ChatSDK/LLM-access/sdk/build/CMakeFiles/ai_chat_sdk.dir
-/home/fengjunziya/ChatSDK/LLM-access/sdk/build/CMakeFiles/edit_cache.dir
-/home/fengjunziya/ChatSDK/LLM-access/sdk/build/CMakeFiles/rebuild_cache.dir
-/home/fengjunziya/ChatSDK/LLM-access/sdk/build/CMakeFiles/list_install_components.dir
-/home/fengjunziya/ChatSDK/LLM-access/sdk/build/CMakeFiles/install.dir
-/home/fengjunziya/ChatSDK/LLM-access/sdk/build/CMakeFiles/install/local.dir
-/home/fengjunziya/ChatSDK/LLM-access/sdk/build/CMakeFiles/install/strip.dir

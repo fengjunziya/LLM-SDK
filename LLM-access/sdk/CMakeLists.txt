@@ -1,44 +1,44 @@
-# Cmake version
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.16)
+project(ai_chat_sdk VERSION 0.1.0 LANGUAGES CXX)
 
-# Set SDK name
-project(ai_chat_sdk)
+# The SDK is a source-built C++17 static library.
+add_library(ai_chat_sdk STATIC
+    src/ChatSDK.cpp
+    src/DataManager.cpp
+    src/DeepSeekProvider.cpp
+    src/LLMManager.cpp
+    src/SessionManager.cpp
+    src/util/Log.cpp
+)
+add_library(LLMSDK::ai_chat_sdk ALIAS ai_chat_sdk)
+target_compile_features(ai_chat_sdk PUBLIC cxx_std_17)
 
-# Set C++ standard
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-# Set Build type
-set(CMAKE_BUILD_TYPE Release)
-
-# Select the source files
-file(GLOB_RECURSE SDK_SOURCES "src/*.cpp")
-file(GLOB_RECURSE SDK_HEADERS "include/*.h")
-
-
-# Generate the static library
-add_library(ai_chat_sdk STATIC ${SDK_SOURCES} ${SDK_HEADERS})
-
-# Set the output directory
-set(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/build)
-
-# Define the target compile options
-target_compile_definitions(ai_chat_sdk PRIVATE CPPHTTPLIB_OPENSSL_SUPPORT)
-
-target_include_directories(ai_chat_sdk PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
-
-# Set the library include directories
-link_directories(/usr/local/lib)
-
-# Find the OpenSSL package
 find_package(OpenSSL REQUIRED)
-include_directories(${OPENSSL_INCLUDE_DIR})
+find_package(SQLite3 REQUIRED)
+find_package(spdlog REQUIRED)
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(JSONCPP REQUIRED IMPORTED_TARGET jsoncpp)
+pkg_check_modules(CPPHTTPLIB REQUIRED IMPORTED_TARGET cpp-httplib)
 
-# Link the static library
-target_link_libraries(ai_chat_sdk PRIVATE spdlog jsoncpp gtest fmt OpenSSL::SSL OpenSSL::Crypto sqlite3)
+target_include_directories(ai_chat_sdk PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include/ai_chat_sdk>
+)
 
-# Install the static library
-install(TARGETS ai_chat_sdk ARCHIVE DESTINATION lib)
+# The distro cpp-httplib package exposes a compiled library via pkg-config.
+target_compile_definitions(ai_chat_sdk PRIVATE CPPHTTPLIB_OPENSSL_SUPPORT)
+target_link_libraries(ai_chat_sdk
+    PUBLIC
+        spdlog::spdlog
+        SQLite::SQLite3
+        OpenSSL::SSL
+        OpenSSL::Crypto
+    PRIVATE
+        PkgConfig::JSONCPP
+        PkgConfig::CPPHTTPLIB
+)
 
-# Install the header files
-install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/ DESTINATION include/ai_chat_sdk FILES_MATCHING PATTERN "*.h")
+include(GNUInstallDirs)
+install(TARGETS ai_chat_sdk ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
+install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ai_chat_sdk
+        FILES_MATCHING PATTERN "*.h")
